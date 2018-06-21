@@ -25,10 +25,10 @@ public class CollectionTestSuite
 	{
 		//Given
 		OddNumbersExterminator exterminator = new OddNumbersExterminator();
-		ArrayList<Integer> listOfNumbers1 = new ArrayList<Integer>();
+		List<Integer> listOfNumbers1 = new ArrayList<Integer>();
 		
 		//When
-		ArrayList<Integer> result1 = exterminator.exterminate(listOfNumbers1);
+		List<Integer> result1 = exterminator.exterminate(listOfNumbers1);
 		System.out.println("Test 1 in progress");
 		
 		//Then
@@ -40,7 +40,7 @@ public class CollectionTestSuite
 	{
 		//Given
 		OddNumbersExterminator exterminator = new OddNumbersExterminator();
-		ArrayList<Integer> listOfNumbers2 = new ArrayList<Integer>();
+		List<Integer> listOfNumbers2 = new ArrayList<Integer>();
 		listOfNumbers2.add(0);
 		listOfNumbers2.add(1);
 		listOfNumbers2.add(2);
@@ -53,11 +53,11 @@ public class CollectionTestSuite
 		listOfNumbers2.add(9);
 		
 		//When
-		ArrayList<Integer> result2 = exterminator.exterminate(listOfNumbers2);
+		List<Integer> result2 = exterminator.exterminate(listOfNumbers2);
 		System.out.println("Test 2 in progress");
 		
 		//Then
-		ArrayList<Integer> listOfNumbers3 = new ArrayList<Integer>();
+		List<Integer> listOfNumbers3 = new ArrayList<Integer>();
 		listOfNumbers3.add(0);
 		listOfNumbers3.add(2);
 		listOfNumbers3.add(4);

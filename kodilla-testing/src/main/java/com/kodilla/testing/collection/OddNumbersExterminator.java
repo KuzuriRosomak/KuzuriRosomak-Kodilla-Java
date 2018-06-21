@@ -5,9 +5,9 @@ import java.lang.*;
 
 public class OddNumbersExterminator
 {
-	public ArrayList<Integer> exterminate(ArrayList<Integer> numbers)
+	public List<Integer> exterminate(List<Integer> numbers)
 	{
-		ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
+		List<Integer> evenNumbers = new ArrayList<Integer>();
 		for(Integer checkingList: numbers)
 		{
 			if(checkingList % 2 == 0)
