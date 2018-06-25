@@ -11,11 +11,6 @@ public class ShapeCollector
 	{
 	}
 	
-	public Shape getShape(Shape shape)
-	{
-		return shape;
-	}
-	
 	public List<Shape> getShapes()
 	{
 		return shapes;
@@ -50,6 +45,12 @@ public class ShapeCollector
 	
 	public String showFigures()
 	{
-		return shapes.get(0).toString() + shapes.get(1).toString() + shapes.get(2).toString();
+		String nameOfTheShape = "";
+		for(Shape shapeLoop: shapes)
+		{
+			nameOfTheShape += shapeLoop.getShapeName();
+		}
+		
+		return nameOfTheShape;
 	}
 }

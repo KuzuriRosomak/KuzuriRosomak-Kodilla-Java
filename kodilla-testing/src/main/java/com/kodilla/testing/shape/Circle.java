@@ -36,10 +36,4 @@ public class Circle implements Shape
 		int result = (31 * shapeName.hashCode()) * 31;
 		return result;
 	}
-	
-	@Override
-	public String toString()
-	{
-		return "" + shapeName;
-	}
 }
