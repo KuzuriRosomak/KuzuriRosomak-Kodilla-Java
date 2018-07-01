@@ -51,16 +51,16 @@ public class CalculatingStatisticsTestSuite
 		
 		List<String> namesOfUsersList = new ArrayList<String>();
 		Random theGenerator = new Random();
-		for (int n=0; n<56742; n++)
+		for (int n=0; n<12436; n++)
 		{
-			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(999999999)));
+			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(1000000)));
 		}
 		when(statisticsMock.usersNames()).thenReturn(namesOfUsersList);
 		
 		int posts = 0;
 		when(statisticsMock.postsCount()).thenReturn(posts);
 		
-		int comments = 65472;
+		int comments = 72464;
 		when(statisticsMock.commentsCount()).thenReturn(comments);
 		
 		CalculatingStatistics statisticsCalculator = new CalculatingStatistics();
@@ -68,10 +68,14 @@ public class CalculatingStatisticsTestSuite
 		//When
 		statisticsCalculator.calculateAdvStatistics(statisticsMock);
 		statisticsCalculator.showStatistics();
-		int postsNumber = statisticsCalculator.getNumberOfPosts();
+		double averagePostsUser = statisticsCalculator.getAvgNumberOfPostPerUser();
+		double averageCommentsUser = statisticsCalculator.getAvgNumberOfCommentsPerUser();
+		double averageCommentsPost = statisticsCalculator.getAvgNumberOfCommentsPerPost();
 		
 		//Then
-		assertEquals(posts, postsNumber);
+		assertEquals(0, averagePostsUser, 0);
+		assertEquals(5.827, averageCommentsUser, 0);
+		assertEquals(0, averageCommentsPost, 0);
 	}
 	
 	@Test
@@ -82,27 +86,31 @@ public class CalculatingStatisticsTestSuite
 		
 		List<String> namesOfUsersList = new ArrayList<String>();
 		Random theGenerator = new Random();
-		for (int n=0; n<56742; n++)
+		for (int n=0; n<124; n++)
 		{
-			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(999999999)));
+			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(1000000)));
 		}
 		when(statisticsMock.usersNames()).thenReturn(namesOfUsersList);
 		
 		int posts = 1000;
 		when(statisticsMock.postsCount()).thenReturn(posts);
 		
-		int comments = 65472;
+		int comments = 32543;
 		when(statisticsMock.commentsCount()).thenReturn(comments);
 		
 		CalculatingStatistics statisticsCalculator = new CalculatingStatistics();
 		
 		//When
-		statisticsCalculator.showStatistics();
 		statisticsCalculator.calculateAdvStatistics(statisticsMock);
-		int postsNumber = statisticsCalculator.getNumberOfPosts();
+		statisticsCalculator.showStatistics();
+		double averagePostsUser = statisticsCalculator.getAvgNumberOfPostPerUser();
+		double averageCommentsUser = statisticsCalculator.getAvgNumberOfCommentsPerUser();
+		double averageCommentsPost = statisticsCalculator.getAvgNumberOfCommentsPerPost();
 		
 		//Then
-		assertEquals(posts, postsNumber);
+		assertEquals(8.065, averagePostsUser, 0);
+		assertEquals(262.444, averageCommentsUser, 0);
+		assertEquals(32.543, averageCommentsPost, 0);
 	}
 	
 	@Test
@@ -113,13 +121,13 @@ public class CalculatingStatisticsTestSuite
 		
 		List<String> namesOfUsersList = new ArrayList<String>();
 		Random theGenerator = new Random();
-		for (int n=0; n<56742; n++)
+		for (int n=0; n<72654; n++)
 		{
-			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(999999999)));
+			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(1000000)));
 		}
 		when(statisticsMock.usersNames()).thenReturn(namesOfUsersList);
 		
-		int posts = 12455;
+		int posts = 6789642;
 		when(statisticsMock.postsCount()).thenReturn(posts);
 		
 		int comments = 0;
@@ -130,10 +138,14 @@ public class CalculatingStatisticsTestSuite
 		//When
 		statisticsCalculator.calculateAdvStatistics(statisticsMock);
 		statisticsCalculator.showStatistics();
-		int commentsNumber = statisticsCalculator.getNumberOfComments();
+		double averagePostsUser = statisticsCalculator.getAvgNumberOfPostPerUser();
+		double averageCommentsUser = statisticsCalculator.getAvgNumberOfCommentsPerUser();
+		double averageCommentsPost = statisticsCalculator.getAvgNumberOfCommentsPerPost();
 		
 		//Then
-		assertEquals(comments, commentsNumber);
+		assertEquals(93.452, averagePostsUser, 0);
+		assertEquals(0, averageCommentsUser, 0);
+		assertEquals(0, averageCommentsPost, 0);
 	}
 	
 	@Test
@@ -144,16 +156,16 @@ public class CalculatingStatisticsTestSuite
 		
 		List<String> namesOfUsersList = new ArrayList<String>();
 		Random theGenerator = new Random();
-		for (int n=0; n<56742; n++)
+		for (int n=0; n<7354; n++)
 		{
-			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(999999999)));
+			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(1000000)));
 		}
 		when(statisticsMock.usersNames()).thenReturn(namesOfUsersList);
 		
-		int posts = 12455;
+		int posts = 985432;
 		when(statisticsMock.postsCount()).thenReturn(posts);
 		
-		int comments = 50;
+		int comments = 7658;
 		when(statisticsMock.commentsCount()).thenReturn(comments);
 		
 		CalculatingStatistics statisticsCalculator = new CalculatingStatistics();
@@ -161,10 +173,14 @@ public class CalculatingStatisticsTestSuite
 		//When
 		statisticsCalculator.calculateAdvStatistics(statisticsMock);
 		statisticsCalculator.showStatistics();
-		int commentsNumber = statisticsCalculator.getNumberOfComments();
+		double averagePostsUser = statisticsCalculator.getAvgNumberOfPostPerUser();
+		double averageCommentsUser = statisticsCalculator.getAvgNumberOfCommentsPerUser();
+		double averageCommentsPost = statisticsCalculator.getAvgNumberOfCommentsPerPost();
 		
 		//Then
-		assertEquals(comments, commentsNumber);
+		assertEquals(133.999, averagePostsUser, 0);
+		assertEquals(1.041, averageCommentsUser, 0);
+		assertEquals(0.008, averageCommentsPost, 0);
 	}
 	
 	@Test
@@ -175,16 +191,16 @@ public class CalculatingStatisticsTestSuite
 		
 		List<String> namesOfUsersList = new ArrayList<String>();
 		Random theGenerator = new Random();
-		for (int n=0; n<56742; n++)
+		for (int n=0; n<8239098; n++)
 		{
-			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(999999999)));
+			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(1000000)));
 		}
 		when(statisticsMock.usersNames()).thenReturn(namesOfUsersList);
 		
-		int posts = 50;
+		int posts = 32765769;
 		when(statisticsMock.postsCount()).thenReturn(posts);
 		
-		int comments = 12456;
+		int comments = 44872004;
 		when(statisticsMock.commentsCount()).thenReturn(comments);
 		
 		CalculatingStatistics statisticsCalculator = new CalculatingStatistics();
@@ -192,10 +208,14 @@ public class CalculatingStatisticsTestSuite
 		//When
 		statisticsCalculator.calculateAdvStatistics(statisticsMock);
 		statisticsCalculator.showStatistics();
-		int commentsNumber = statisticsCalculator.getNumberOfComments();
+		double averagePostsUser = statisticsCalculator.getAvgNumberOfPostPerUser();
+		double averageCommentsUser = statisticsCalculator.getAvgNumberOfCommentsPerUser();
+		double averageCommentsPost = statisticsCalculator.getAvgNumberOfCommentsPerPost();
 		
 		//Then
-		assertEquals(comments, commentsNumber);
+		assertEquals(3.977, averagePostsUser, 0);
+		assertEquals(5.446, averageCommentsUser, 0);
+		assertEquals(1.369, averageCommentsPost, 0);
 	}
 	
 	@Test
@@ -206,10 +226,12 @@ public class CalculatingStatisticsTestSuite
 		
 		List<String> namesOfUsersList = new ArrayList<String>();
 		
-		int posts = 50;
+		when(statisticsMock.usersNames()).thenReturn(namesOfUsersList);
+		
+		int posts = 4567823;
 		when(statisticsMock.postsCount()).thenReturn(posts);
 		
-		int comments = 12456;
+		int comments = 9898765;
 		when(statisticsMock.commentsCount()).thenReturn(comments);
 		
 		CalculatingStatistics statisticsCalculator = new CalculatingStatistics();
@@ -217,10 +239,14 @@ public class CalculatingStatisticsTestSuite
 		//When
 		statisticsCalculator.calculateAdvStatistics(statisticsMock);
 		statisticsCalculator.showStatistics();
-		int usersNumber = statisticsCalculator.getNumberOfUsers();
+		double averagePostsUser = statisticsCalculator.getAvgNumberOfPostPerUser();
+		double averageCommentsUser = statisticsCalculator.getAvgNumberOfCommentsPerUser();
+		double averageCommentsPost = statisticsCalculator.getAvgNumberOfCommentsPerPost();
 		
 		//Then
-		assertEquals(namesOfUsersList.size(), usersNumber);
+		assertEquals(0, averagePostsUser, 0);
+		assertEquals(0, averageCommentsUser, 0);
+		assertEquals(2.167, averageCommentsPost, 0);
 	}
 	
 	@Test
@@ -233,14 +259,14 @@ public class CalculatingStatisticsTestSuite
 		Random theGenerator = new Random();
 		for (int n=0; n<100; n++)
 		{
-			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(999999999)));
+			namesOfUsersList.add(String.valueOf(theGenerator.nextInt(1000000)));
 		}
 		when(statisticsMock.usersNames()).thenReturn(namesOfUsersList);
 		
-		int posts = 50;
+		int posts = 87643;
 		when(statisticsMock.postsCount()).thenReturn(posts);
 		
-		int comments = 12456;
+		int comments = 245775;
 		when(statisticsMock.commentsCount()).thenReturn(comments);
 		
 		CalculatingStatistics statisticsCalculator = new CalculatingStatistics();
@@ -248,9 +274,13 @@ public class CalculatingStatisticsTestSuite
 		//When
 		statisticsCalculator.calculateAdvStatistics(statisticsMock);
 		statisticsCalculator.showStatistics();
-		int usersNumber = statisticsCalculator.getNumberOfUsers();
+		double averagePostsUser = statisticsCalculator.getAvgNumberOfPostPerUser();
+		double averageCommentsUser = statisticsCalculator.getAvgNumberOfCommentsPerUser();
+		double averageCommentsPost = statisticsCalculator.getAvgNumberOfCommentsPerPost();
 		
 		//Then
-		assertEquals(namesOfUsersList.size(), usersNumber);
+		assertEquals(876.43, averagePostsUser, 0);
+		assertEquals(2457.75, averageCommentsUser, 0);
+		assertEquals(2.804, averageCommentsPost, 0);
 	}
 }
