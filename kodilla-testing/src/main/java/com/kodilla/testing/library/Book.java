@@ -33,24 +33,28 @@ public class Book
 	@Override
 	public String toString()
 	{
-		return "Book{" + "title='" + title + '\'' + ", author='" + author + '\'' + ", publicationYear=" + publicationYear + '}';
+		return "Book{" + "title='" + title + '\'' + 	", author='" + author + '\'' + ", publicationYear=" + publicationYear + '}';
 	}
 	
 	@Override
 	public boolean equals(Object o)
 	{
-		if(this == o)
-			return true;
-		if(o == null || getClass() != o.getClass())
-			return false;
+		if (this == o) return true;
+		if (!(o instanceof Book)) return false;
+		
 		Book book = (Book) o;
-		return getPublicationYear() == book.getPublicationYear() && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getAuthor(), book.getAuthor());
+		
+		if (publicationYear != book.publicationYear) return false;
+		if (!title.equals(book.title)) return false;
+		return author.equals(book.author);
 	}
 	
 	@Override
 	public int hashCode()
 	{
-		
-		return Objects.hash(getTitle(), getAuthor(), getPublicationYear());
+		int result = title.hashCode();
+		result = 31 * result + author.hashCode();
+		result = 31 * result + publicationYear;
+		return result;
 	}
 }
