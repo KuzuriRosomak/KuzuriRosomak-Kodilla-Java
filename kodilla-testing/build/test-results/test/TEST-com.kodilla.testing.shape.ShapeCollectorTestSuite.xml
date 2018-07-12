@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.shape.ShapeCollectorTestSuite" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-07-06T20:37:08" hostname="Kuzuri" time="0.006">
+  <properties/>
+  <testcase name="testShowFigures" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.004"/>
+  <testcase name="testRemoveFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
+  <testcase name="testAddFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testGetFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testRemoveFigureNotExisting" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
+  <system-out><![CDATA[Starting Test Suite for ShapeCollector Class.
+Starting test number: 1 named: testShowFigures
+Finishing test number: 1 named: testShowFigures
+Starting test number: 2 named: testRemoveFigure
+Finishing test number: 2 named: testRemoveFigure
+Starting test number: 3 named: testAddFigure
+Finishing test number: 3 named: testAddFigure
+Starting test number: 4 named: testGetFigure
+Finishing test number: 4 named: testGetFigure
+Starting test number: 5 named: testRemoveFigureNotExisting
+Finishing test number: 5 named: testRemoveFigureNotExisting
+Test Suite for ShapeCollector Class is finished.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

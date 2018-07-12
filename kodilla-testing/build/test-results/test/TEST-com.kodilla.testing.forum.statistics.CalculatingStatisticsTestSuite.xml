@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-07-06T20:37:04" hostname="Kuzuri" time="3.746">
+  <properties/>
+  <testcase name="testCalculateAdvStatisticsNumberOfCommentsIsBiggerThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" time="3.719"/>
+  <testcase name="testCalculateAdvStatisticsNumberOfCommentsIsLowerThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" time="0.003"/>
+  <testcase name="testCalculateAdvStatisticsNumberOfPosts0" classname="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" time="0.003"/>
+  <testcase name="testCalculateAdvStatisticsNumberOfUsers0" classname="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" time="0.003"/>
+  <testcase name="testCalculateAdvStatisticsNumberOfUsers100" classname="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" time="0.002"/>
+  <testcase name="testCalculateAdvStatisticsNumberOfPosts1000" classname="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" time="0.003"/>
+  <testcase name="testCalculateAdvStatisticsNumberOfComments0" classname="com.kodilla.testing.forum.statistics.CalculatingStatisticsTestSuite" time="0.011"/>
+  <system-out><![CDATA[Starting Test Suite for CalculatingStatistics Class.
+Starting test number: 1 named: testCalculateAdvStatisticsNumberOfCommentsIsBiggerThanNumberOfPosts
+Forum currently has 8239098 users.
+They published 32765769 posts.
+Users commented 44872004 times.
+Average number of posts per user is 3.977.
+Average number of comments per user is 5.446.
+Average number of comments per post is 1.369.
+Finishing test number: 1 named: testCalculateAdvStatisticsNumberOfCommentsIsBiggerThanNumberOfPosts
+Starting test number: 2 named: testCalculateAdvStatisticsNumberOfCommentsIsLowerThanNumberOfPosts
+Forum currently has 7354 users.
+They published 985432 posts.
+Users commented 7658 times.
+Average number of posts per user is 133.999.
+Average number of comments per user is 1.041.
+Average number of comments per post is 0.008.
+Finishing test number: 2 named: testCalculateAdvStatisticsNumberOfCommentsIsLowerThanNumberOfPosts
+Starting test number: 3 named: testCalculateAdvStatisticsNumberOfPosts0
+avgNumberOfCommentsPerPost can't be counted
+Forum currently has 12436 users.
+They published 0 posts.
+Users commented 72464 times.
+Average number of posts per user is 0.0.
+Average number of comments per user is 5.827.
+Average number of comments per post is 0.0.
+Finishing test number: 3 named: testCalculateAdvStatisticsNumberOfPosts0
+Starting test number: 4 named: testCalculateAdvStatisticsNumberOfUsers0
+avgNumberOfPostPerUser can't be counted
+avgNumberOfCommentsPerUser can't be counted
+Forum currently has 0 users.
+They published 4567823 posts.
+Users commented 9898765 times.
+Average number of posts per user is 0.0.
+Average number of comments per user is 0.0.
+Average number of comments per post is 2.167.
+Finishing test number: 4 named: testCalculateAdvStatisticsNumberOfUsers0
+Starting test number: 5 named: testCalculateAdvStatisticsNumberOfUsers100
+Forum currently has 100 users.
+They published 87643 posts.
+Users commented 245775 times.
+Average number of posts per user is 876.43.
+Average number of comments per user is 2457.75.
+Average number of comments per post is 2.804.
+Finishing test number: 5 named: testCalculateAdvStatisticsNumberOfUsers100
+Starting test number: 6 named: testCalculateAdvStatisticsNumberOfPosts1000
+Forum currently has 124 users.
+They published 1000 posts.
+Users commented 32543 times.
+Average number of posts per user is 8.065.
+Average number of comments per user is 262.444.
+Average number of comments per post is 32.543.
+Finishing test number: 6 named: testCalculateAdvStatisticsNumberOfPosts1000
+Starting test number: 7 named: testCalculateAdvStatisticsNumberOfComments0
+Forum currently has 72654 users.
+They published 6789642 posts.
+Users commented 0 times.
+Average number of posts per user is 93.452.
+Average number of comments per user is 0.0.
+Average number of comments per post is 0.0.
+Finishing test number: 7 named: testCalculateAdvStatisticsNumberOfComments0
+Test Suite for CalculatingStatistics Class is finished.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
