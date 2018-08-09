@@ -4,23 +4,9 @@ public class FirstChallenge
 {
 	public double divide(double a, double b) throws ArithmeticException
 	{
-		try
+		if(b == 0)
 		{
-			if(b == 0)
-			{
-				throw new ArithmeticException();
-			}
-		}
-		
-		catch(ArithmeticException e)
-		{
-			System.out.println("One can never divide by zero when one feels an impulse to do so. " + "We have --- " + e +
-					" --- here!!!");
-		}
-		
-		finally
-		{
-			System.out.println("Just remember to never divide by zero.");
+			throw new ArithmeticException();
 		}
 		
 		return a / b;
@@ -31,14 +17,22 @@ public class FirstChallenge
 	 * @param args
 	 */
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		
 		FirstChallenge firstChallenge = new FirstChallenge();
 		
-		double result = firstChallenge.divide(3, 0);
+		try {
+			double result = firstChallenge.divide(3, 0);
+			System.out.println("Result is: " + result);
+		}
 		
-		System.out.println("BTW the result is: " + result);
+		catch(ArithmeticException e) {
+			System.out.println("One can never divide by zero when one feels an impulse to do so. " + "We have --- " + e +
+					" --- here!!!");
+		}
 		
+		finally {
+			System.out.println("Just remember to never divide by zero.");
+		}
 	}
 }
