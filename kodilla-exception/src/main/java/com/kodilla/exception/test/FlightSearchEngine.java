@@ -21,12 +21,8 @@ public class FlightSearchEngine
 		database.put("Beijing", true);
 		database.put("Moscow", false);
 		
-		List<String> catcher = new ArrayList<>();
-		
 		if(!database.containsKey(flight.getArrivalAirport()) || database.get(flight.getArrivalAirport()) == false)
 		{
-			catcher.add(flight.getArrivalAirport());
-			System.out.println("Those destinations are not available: " + catcher);
 			throw new RouteNotFoundException();
 		}
 		
