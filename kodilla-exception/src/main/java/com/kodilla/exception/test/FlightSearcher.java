@@ -5,11 +5,11 @@ public class FlightSearcher
 	public static void main(String[] args)
 	{
 		FlightSearchEngine flightSearchEngine = new FlightSearchEngine();
-		Flight flight1 = new Flight("Melbourne, Australia - MEL", "Warsaw, Poland - WAW");
-		Flight flight2 = new Flight("Berlin, Germany - BER", "Buenos Aires, Argentina - AEP");
-		Flight flight3 = new Flight("Montreal, Canada - YUL", "Wellington, New Zealand - WLG");
-		Flight flight4 = new Flight("Beijing, China - PEK", "Moscow, Russia - SVO");
-		Flight flight5 = new Flight("Wroclaw, Poland - WRO", "Paris, France - CDG");
+		Flight flight1 = new Flight("Melbourne", "Warsaw");
+		Flight flight2 = new Flight("Berlin", "Buenos Aires");
+		Flight flight3 = new Flight("Montreal", "Wellington");
+		Flight flight4 = new Flight("Beijing", "Moscow");
+		Flight flight5 = new Flight("Wroclaw", "Paris");
 		
 		try
 		{
@@ -22,7 +22,8 @@ public class FlightSearcher
 		
 		catch(RouteNotFoundException e)
 		{
-			System.out.println("\n" + "The route you looking for is not existing. Change input data");
+			System.out.println("\n" + "The route you looking for is not existing because departure airport is closed. " +
+					"Change input data and don't use diacritical signs.");
 		}
 	}
 }
