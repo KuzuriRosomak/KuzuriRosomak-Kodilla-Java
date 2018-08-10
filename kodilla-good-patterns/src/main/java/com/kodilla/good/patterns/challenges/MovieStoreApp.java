@@ -8,9 +8,9 @@ public class MovieStoreApp
 		
 		MovieStore movieStore = new MovieStore();
 		
-		String resultString = movieStore.getMovies().entrySet().stream()
-				.flatMap(n -> n.getValue().stream())
-				.collect(Collectors.joining("!", "", ""));
+		String resultString = movieStore.getMovies().values().stream()
+				.flatMap(n -> n.stream())
+				.collect(Collectors.joining("!"));
 		
 		System.out.println(resultString);
 	}
