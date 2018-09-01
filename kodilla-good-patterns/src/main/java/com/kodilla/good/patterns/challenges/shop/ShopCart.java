@@ -1,59 +1,43 @@
 package com.kodilla.good.patterns.challenges.shop;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.OptionalDouble;
+import java.time.LocalDateTime;
 
 public class ShopCart {
-	private User user;
-	private User user2;
+	private User thisUserIsBuying;
+	private User thisUserIsSelling;
 	private Product product;
-	private UserProductMap userProductMap;
-	private ProductDatabase productDatabase;
 	private double productQuantity;
-	private double finalPrice;
-	private Map<Product, Double> shopCartMap;
+	private LocalDateTime timeOfOrder;
 	
-	public ShopCart(User user) {
-		this.user = user;
-		this.shopCartMap = new HashMap<>();
+	public ShopCart(User thisUserIsBuying, User thisUserIsSelling, String productName, double productQuantity) {
+		this.thisUserIsBuying = thisUserIsBuying;
+		this.thisUserIsSelling = thisUserIsSelling;
+		this.product = thisUserIsSelling.getUserProductMap().get(productName);
+		this.productQuantity = productQuantity;
+		this.timeOfOrder = LocalDateTime.now();
 	}
 	
-	public void addingToShopCartMap(Product product, double quantity) {
-		shopCartMap.put(product, quantity);
-		productQuantity = shopCartMap.size();
+	public User getThisUserIsBuying() {
+		return thisUserIsBuying;
 	}
 	
-	public void removingFromShopCartMap(Product product) {
-		shopCartMap.remove(product);
-		productQuantity = shopCartMap.size();
+	public User getThisUserIsSelling() {
+		return thisUserIsSelling;
 	}
 	
-	public void removingAllItemsFromShopCartMap(Map shopCartMap) {
-		shopCartMap.clear();
-		productQuantity = shopCartMap.size();
-	}
-	
-	public void changingShopCartMap(Product product, double quantity) {
-		shopCartMap.replace(product, quantity);
-		productQuantity = shopCartMap.size();
-	}
-	
-	public Map<Product, Double> getShopCartMap() {
-		return shopCartMap;
+	public Product getProduct() {
+		return product;
 	}
 	
 	public double getProductQuantity() {
 		return productQuantity;
 	}
 	
-	public double finalPriceCounter() {
-		
-		finalPrice = getShopCartMap().entrySet().stream()
-				.mapToDouble(n -> n.getKey().getProductPrice())
-				.sum();
-		
-		return finalPrice * getProductQuantity();
+	public LocalDateTime getTimeOfOrder() {
+		return timeOfOrder;
+	}
+	
+	public void setTimeOfOrder(LocalDateTime timeOfOrder) {
+		this.timeOfOrder = timeOfOrder;
 	}
 }

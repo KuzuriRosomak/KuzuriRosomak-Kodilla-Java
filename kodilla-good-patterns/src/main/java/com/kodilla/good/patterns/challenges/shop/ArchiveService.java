@@ -5,10 +5,13 @@ import java.util.Map;
 
 public class ArchiveService {
 	private static ArchiveService instance;
-	private Checkout checkout;
-	private Map<Long, Checkout> orderArchive = new HashMap<>();
+	private Map<Long, ShopCart> orderArchive;
+	private Map<Long, Product> productArchive;
 	
-	private ArchiveService() {}
+	private ArchiveService() {
+		this.orderArchive = new HashMap<>();
+		this.productArchive = new HashMap<>();
+	}
 	
 	public static ArchiveService getInstance() {
 		if(instance == null) {
@@ -21,11 +24,19 @@ public class ArchiveService {
 		return instance;
 	}
 	
-	private void addingToOrderArchive(Checkout checkout) {
-		orderArchive.put(checkout.;
+	public void addingToOrderArchive(ShopCart shopCart) {
+		orderArchive.put(shopCart.getProduct().getProductNumber(), shopCart);
 	}
 	
-	public Map<Long, Checkout> getOrderArchive() {
+	public void addingToProductArchive(Product product) {
+		productArchive.put(product.getProductNumber(), product);
+	}
+	
+	public Map<Long, ShopCart> getOrderArchive() {
 		return orderArchive;
+	}
+	
+	public Map<Long, Product> getProductArchive() {
+		return productArchive;
 	}
 }

@@ -6,15 +6,14 @@ public class Product {
 	private User user;
 	private String productName;
 	private long productNumber;
-	private double productPrice;
+	private double pricePerUnit;
 	private double quantity;
 	private Random productNumberGenerator = new Random();
-	private ProductDatabase productDatabase;
 	
-	public Product(User user, String productName, double productPrice, double quantity) {
+	public Product(User user, String productName, double pricePerUnit, double quantity) {
 		this.user = user;
 		this.productName = productName;
-		this.productPrice = productPrice;
+		this.pricePerUnit = pricePerUnit;
 		this.quantity = quantity;
 		this.productNumber = productNumberGeneratorMethod();
 	}
@@ -53,18 +52,16 @@ public class Product {
 		
 		String concatString = temporaryLongString.concat(temporaryLongString2).concat(temporaryLongString3)
 				.concat(temporaryLongString4).concat(temporaryLongString5);
-		System.out.println(concatString);
 		String trimTemporaryLongString = concatString.substring((concatString.length()) - 15);
-		System.out.println(trimTemporaryLongString);
 		long temporaryLong = Long.parseLong(trimTemporaryLongString);
-		System.out.println(temporaryLong);
 		long longToCompare = 100000000000L;
 		if(temporaryLong <= longToCompare) {
 			productNumberGeneratorMethod();
-		} else if ((productDatabase.getShopsProductDataBase().containsKey(temporaryLong)) == true) {
-			productNumberGeneratorMethod();
+		} else {
+			if ((ProductDatabase.getInstance().getShopsProductDataBase().containsKey(temporaryLong)) == true) {
+				productNumberGeneratorMethod();
+			}
 		}
-		
 		return temporaryLong;
 	}
 	
@@ -80,20 +77,16 @@ public class Product {
 		return productNumber;
 	}
 	
-	public double getProductPrice() {
-		return productPrice;
+	public double getPricePerUnit() {
+		return pricePerUnit;
 	}
 	
 	public double getQuantity() {
 		return quantity;
 	}
 	
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-	
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
+	public void setPricePerUnit(double pricePerUnit) {
+		this.pricePerUnit = pricePerUnit;
 	}
 	
 	public void setQuantity(double quantity) {

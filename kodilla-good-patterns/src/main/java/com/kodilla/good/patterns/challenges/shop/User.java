@@ -3,6 +3,8 @@ package com.kodilla.good.patterns.challenges.shop;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
 	private String name;
@@ -16,14 +18,15 @@ public class User {
 	private String addressCity;
 	private String addressCountry;
 	private LocalDate birthDate;
-	private boolean isEighteen;
 	private LocalDateTime dateOfAccountCreation;
-	private UserProductMap userProductMap;
-	private Wallet wallet;
+	private double accountBalance;
+	private boolean isEighteen;
+	private Map<String, Product> userProductMap;
 	
 	public User(String name, String lastName, String login, String addressStreet, String addressStreetNumber,
 	            String addressApartmentNumber, String addressZipCode, String addressCity, String addressCountry,
-	            int yearOfBirth, int monthOfBirth, int dayOfBirth) {
+	            int dayOfBirth, int monthOfBirth, int yearOfBirth, double accountBalance) {
+		
 		this.name = name;
 		this.lastName = lastName;
 		this.login = login;
@@ -34,10 +37,16 @@ public class User {
 		this.addressCity = addressCity;
 		this.addressCountry = addressCountry;
 		this.birthDate = LocalDate.of(yearOfBirth, monthOfBirth, dayOfBirth);
-		this.isEighteen = (ChronoUnit.DAYS.between(LocalDate.now(), birthDate.plusYears(18)) <= 0);
 		this.dateOfAccountCreation = LocalDateTime.now();
-		this.uniqueId = (Long.parseLong(dateOfAccountCreation.toString().replaceAll("[-T:.]","")))
+		this.accountBalance = accountBalance;
+		this.isEighteen = (ChronoUnit.DAYS.between(LocalDate.now(), birthDate.plusYears(18)) <= 0);
+		long uniqueIdRepository = (Long.parseLong(dateOfAccountCreation.toString().replaceAll("[-T:.]","")))
 				+ (Long.parseLong(birthDate.toString().replaceAll("[-]","")));
+		if(uniqueIdRepository <= 0) {
+			uniqueIdRepository = (uniqueIdRepository * (-1));
+		}
+		this.uniqueId = uniqueIdRepository;
+		this.userProductMap = new HashMap<>();
 	}
 	
 	public String getName() {
@@ -84,15 +93,19 @@ public class User {
 		return birthDate;
 	}
 	
-	public boolean isEighteen() {
-		return isEighteen;
-	}
-	
 	public LocalDateTime getDateOfAccountCreation() {
 		return dateOfAccountCreation;
 	}
 	
-	public UserProductMap getUserProductMap() {
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+	
+	public boolean isEighteen() {
+		return isEighteen;
+	}
+	
+	public Map<String, Product> getUserProductMap() {
 		return userProductMap;
 	}
 	
@@ -124,7 +137,7 @@ public class User {
 		return "User account: \n" + "Your login is: " + login + "\n" + "Your name and last name are: " + name + " "
 				+ lastName + "\n" + "Your address is:\n" + addressStreet + " " + addressStreetNumber + "\n"
 				+ addressZipCode + " " + addressCity + "\n" + addressCountry + "\n" + "Your date of birth is: " +
-				birthDate + "\n" + "Your service wallet balance is: " + wallet + " PLN" + "\n" +
-				"Your account havebeen created on: " + dateOfAccountCreation;
+				birthDate + "\n" + "Your service wallet balance is: " + accountBalance + " PLN" + "\n" +
+				"Your account have been created on: " + dateOfAccountCreation;
 	}
 }
