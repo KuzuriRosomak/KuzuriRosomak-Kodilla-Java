@@ -1,5 +1,7 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import java.util.List;
+
 public class Processor {
 	private OrderProcess orderProcess;
 	
@@ -7,7 +9,15 @@ public class Processor {
 		this.orderProcess = orderProcess;
 	}
 	
-	public void doIt(Order order) {
-		orderProcess.process(order);
+	public boolean haveBeenProcessed(List<Order> listOfOrders) {
+		boolean isDone = false;
+		for(Order currentOrder : listOfOrders) {
+			if(orderProcess.process(currentOrder)) {
+				isDone = true;
+			} else {
+				isDone = false;
+			}
+		}
+		return isDone;
 	}
 }
