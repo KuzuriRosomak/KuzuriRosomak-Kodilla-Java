@@ -44,26 +44,31 @@ public class GlutenFreeShop implements OrderProcess {
 	@Override
 	public boolean process(Order order) {
 		boolean canBeProcessed = false;
-		System.out.println("Starting processing order...");
+		System.out.println("Starting processing order " + order.getClient().getLogin());
 		if(!(mapOfProducts.containsKey(order.getProductName()))) {
-			System.out.println("We don't have: " + order.getProductName() + " in our stock." + " Please feel free to " +
+			System.out.println(order.getClient().getLogin() + " we don't have: "
+					+ order.getProductName() + " in our stock." + " Please feel free to " +
 					"check out our other products.");
 		} else {
 			if(!(mapOfProducts.get(order.getProductName()).getQuantity() >= order.getQuantity())) {
-				System.out.println("We don't have enough amount of: " + order.getProductName() + ". Please lower the required " +
+				System.out.println(order.getClient().getLogin() + " we don't have enough amount of: "
+						+ order.getProductName() + ". Please lower the required " +
 						"amount of: " + order.getQuantity() + " to: "
-						+ mapOfProducts.get(order.getProductName()).getQuantity() + " or less, or check out our other products.");
+						+ mapOfProducts.get(order.getProductName()).getQuantity()
+						+ " or less, or check out our other products.");
 			} else {
 				if(!(((order.getQuantity()) * (mapOfProducts.get(order.getProductName()).getPricePerUnit()))
 						<= (order.getClient().getAccountBalance()))) {
-					System.out.println("You don't have enough funds to processed your order.\nYour account balance is: "
+					System.out.println(order.getClient().getLogin() + " you don't have enough funds to processed your " +
+							"order.\nYour account balance is: "
 							+ order.getClient().getAccountBalance() + ".\n" + "Required amount is: "
 							+ ((order.getQuantity()) * (mapOfProducts.get(order.getProductName()).getPricePerUnit()))
 							+ ".\nPlease deposit missing: "
 							+ (((order.getQuantity()) * (mapOfProducts.get(order.getProductName()).getPricePerUnit()))
 							- (order.getClient().getAccountBalance())) + ".");
 				} else {
-					System.out.println("Your order have been processed. You will get your: " + order.getQuantity() + " "
+					System.out.println(order.getClient().getLogin() + " your order have been processed. You will get your: "
+							+ order.getQuantity() + " "
 							+ order.getProductName() + " soon.");
 					canBeProcessed = true;
 				}
