@@ -9,7 +9,7 @@ public class BoardConfig {
 	
 	@Bean
 	public Board getBoard() {
-		return new Board();
+		return new Board(getToDoList(), getInProgressList(), getDoneList());
 	}
 	
 	@Bean(name = "toDoList")
