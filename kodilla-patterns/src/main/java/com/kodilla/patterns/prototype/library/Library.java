@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public final class Library extends Prototype {
-	String name;
-	Set<Book> books = new HashSet<>();
+	private String name;
+	private Set<Book> books = new HashSet<>();
 	
 	public Library(String name) {
 		this.name = name;
@@ -44,18 +44,3 @@ public final class Library extends Prototype {
 				books.toString();
 	}
 }
-
-//deepCopy()
-
-/**public Board deepCopy() throws CloneNotSupportedException {
- Board clonedBoard = (Board)super.clone();
- clonedBoard.lists = new HashSet<>();
- for(TasksList theList : lists) {
- TasksList clonedList = new TasksList(theList.getName());
- for(Task task : theList.getTasks()) {
- clonedList.getTasks().add(task);
- }
- clonedBoard.getLists().add(clonedList);
- }
- return clonedBoard;
- }*/
