@@ -14,7 +14,8 @@ public class ShoppingTask implements Task {
 	
 	@Override
 	public void executeTask() {
-		System.out.println(taskName + " has been executed.\nYou bought " + quantity + " " + whatToBuy + ".");
+		System.out.println(taskName + " has been executed.\n" +
+				"You bought " + quantity + " " + whatToBuy + ".");
 		taskExecuted = true;
 	}
 	
